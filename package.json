@@ -1,0 +1,28 @@
+{
+  "name": "fancy_apis",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/top-klass/fancy_APIs.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/top-klass/fancy_APIs/issues"
+  },
+  "homepage": "https://github.com/top-klass/fancy_APIs#readme",
+  "dependencies": {
+    "express": "4.17.1",
+    "mysql": "2.17.1"
+  },
+  "devDependencies": {
+    "swagger-jsdoc": "^3.4.0",
+    "swagger-ui-express": "^4.1.1"
+  }
+}
