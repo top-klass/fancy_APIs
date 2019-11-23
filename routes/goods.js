@@ -4,13 +4,20 @@ const db = require('../lib/db');
 
 router.get('/', (req, res) => {
 
-    const query = "SELECT id, musician_id, name, price FROM Goods";
+    if(!req.session.isLogined) {
+        res.json({
+            msg: "로그인 후 시도해주세요."
+        })
+    }
 
-    db.query(query, (err, rows, fields) => {
+    const query = "SELECT * FROM goods WHERE id = ?";
+    const params = [req.query.goods_id]
+
+    db.query(query, params, (err, rows, fields) => {
 
         if(err) {
             res.json({
-                msg: "Error! Lookup Process Failed."
+                msg: "오류가 발생했습니다. 다시 시도해 주세요."
             })
         }
         else {
