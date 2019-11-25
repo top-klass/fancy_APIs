@@ -17,8 +17,6 @@ router.post('/', (req, res) => {
 
         db.query(query, params, (err, rows, fields) => {
 
-            db.end();
-
             if(err) {
                 res.json({
                     msg: "오류가 발생하였습니다. 다시 시도해주세요."

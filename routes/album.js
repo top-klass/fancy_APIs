@@ -11,7 +11,7 @@ router.post('/', (req, res) => {
     }
     
     let query = "SELECT * FROM album WHERE serial_number = ?";
-    let params = [req.query.serial_number];
+    let params = [req.body.serial_number];
 
     db.query(query, params, (err, rows, fields) => {
 
@@ -28,12 +28,12 @@ router.post('/', (req, res) => {
         }
         else {
 
-            query = "SELECT user_id FROM user WHERE user_name = ?";
+            query = "SELECT id FROM user WHERE name = ?";
             params = [req.session.user_name];
 
             db.query(query, params, (err, rows) => {
 
-                query = "UPDATE Album SET check_certified = ?, certified_by = ?, WHERE serial_number = ?";
+                query = "UPDATE Album SET check_certified = ?, certified_by = ? WHERE serial_number = ?";
                 params = [true, rows[0]['id'], req.body.serial_number];
 
                 db.query(query, params, (err) => {
